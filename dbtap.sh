@@ -13,7 +13,7 @@ TMP_DB_HOST=$6
 TAP_ID=`date +'%y-%m-%d_%H-%M-%S'`
 DUMPDIR_NAME=${DB_NAME}_dump_${TAP_ID}
 TARBALL_NAME=$DUMPDIR_NAME.tar.gz
-ANONDIR_NAME=${DUMPDIR_NAME}_anonymized
+ANONDIR_NAME=${DB_NAME}_anonymized
 TARANON_NAME=$ANONDIR_NAME.tar.gz
 
 # Create dump tarball
