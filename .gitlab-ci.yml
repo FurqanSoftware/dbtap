@@ -2,13 +2,13 @@ services:
   - mongo:3.4
 
 stages:
-  backup
+  - backup
 
 backup_mongodb:
   image: git.furqan.io:5005/toph/toph-dbtap:0.1
   stage: backup
   only:
-    master
+    - master
   script:
     - mkdir $HOME/.aws && echo -e "[default]\nregion = $AWS_REGION\n" > $HOME/.aws/config && echo -e "[default]\naws_access_key_id = $AWS_ACCESS_KEY_ID\naws_secret_access_key = $AWS_SECRET_ACCESS_KEY\n" > $HOME/.aws/credentials
     - ./dbtap.sh $SSH_HOST $DB_NAME $DB_USER $DB_PASS $S3_BUCKET_NAME $TMP_DB_HOST
