@@ -10,7 +10,7 @@ backup_mongodb:
   only:
     - master
   script:
-    - mkdir -p ~/.ssh && echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa && echo "$HOST_KEYS" > ~/.ssh/known_hosts
+    - mkdir -p ~/.ssh && echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa && echo "$HOST_KEYS" > ~/.ssh/known_hosts
     - mkdir $HOME/.aws && echo -e "[default]\nregion = $AWS_REGION\n" > $HOME/.aws/config && echo -e "[default]\naws_access_key_id = $AWS_ACCESS_KEY_ID\naws_secret_access_key = $AWS_SECRET_ACCESS_KEY\n" > $HOME/.aws/credentials
     - ./dbtap.sh $SSH_HOST $DB_NAME $DB_USER $DB_PASS $S3_BUCKET_NAME $TMP_DB_HOST
   artifacts:
