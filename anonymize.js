@@ -1,1 +1,1 @@
-// Anonymize script goes here..
+// This script will be executed through Mongo shell.
