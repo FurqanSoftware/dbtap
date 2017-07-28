@@ -16,4 +16,4 @@ backup_mongodb:
   artifacts:
     expire_in: 1 week
     paths:
-        - $DB_NAME_anonymized.tar.gz
+        - ${DB_NAME}_anonymized.tar.gz
